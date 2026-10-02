@@ -1,0 +1,8 @@
+# Replace this hostname with your public domain. Caddy manages HTTPS certificates.
+laundry.example.com {
+    encode zstd gzip
+    reverse_proxy 127.0.0.1:4000
+    header Cache-Control "no-cache"
+    @assets path /assets/* /images/* /fonts/*
+    header @assets Cache-Control "public, max-age=3600"
+}

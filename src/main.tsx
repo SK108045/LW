@@ -1,0 +1,15 @@
+import React,{Suspense,lazy,useEffect} from 'react';
+import ReactDOM from 'react-dom/client';
+import {BrowserRouter,Routes,Route,useLocation,Link} from 'react-router-dom';
+import {AppProvider,useApp} from './context';
+import Layout from './components/Layout';
+import {Spinner,ErrorBox} from './components/UI';
+import './styles.css';
+import './visual.css';
+const Home=lazy(()=>import('./pages/Home')),Services=lazy(()=>import('./pages/Services')),Providers=lazy(()=>import('./pages/Providers')),ProviderProfile=lazy(()=>import('./pages/ProviderProfile')),Booking=lazy(()=>import('./pages/Booking')),Auth=lazy(()=>import('./pages/Auth')),Dashboard=lazy(()=>import('./pages/Dashboard')),OrderDetail=lazy(()=>import('./pages/OrderDetail')),Account=lazy(()=>import('./pages/Account')),Plans=lazy(()=>import('./pages/Plans')),Notifications=lazy(()=>import('./pages/Notifications')),Help=lazy(()=>import('./pages/Help')),Policies=lazy(()=>import('./pages/Policies'));
+function ScrollReset(){const {pathname}=useLocation();useEffect(()=>{window.scrollTo({top:0,left:0,behavior:'instant'});},[pathname]);return null;}
+function App(){const {loading,error,catalog,refresh}=useApp();if(loading)return <Spinner/>;if(!catalog)return <div className="container section"><ErrorBox text={error}/><button className="btn" onClick={()=>void refresh()}>Retry connection</button></div>;return <><ScrollReset/><Suspense fallback={<Spinner/>}><Routes><Route element={<Layout/>}><Route index element={<Home/>}/><Route path="services" element={<Services/>}/><Route path="providers" element={<Providers/>}/><Route path="providers/:id" element={<ProviderProfile/>}/><Route path="book" element={<Booking/>}/><Route path="login" element={<Auth/>}/><Route path="join" element={<Auth join/>}/><Route path="dashboard" element={<Dashboard/>}/><Route path="bookings/:id" element={<OrderDetail/>}/><Route path="account" element={<Account/>}/><Route path="plans" element={<Plans/>}/><Route path="notifications" element={<Notifications/>}/><Route path="help" element={<Help/>}/><Route path="policies" element={<Policies/>}/><Route path="*" element={<div className="container section empty"><h1>That page has moved.</h1><Link className="btn" to="/">Back to home</Link></div>}/></Route></Routes></Suspense></>;}
+class ErrorBoundary extends React.Component<{children:React.ReactNode},{failed:boolean}>{state={failed:false};static getDerivedStateFromError(){return {failed:true};}render(){return this.state.failed?<div className="container section"><h1>Let’s try that again.</h1><p>The page could not load. Your saved bookings are still on the server.</p><button className="btn" onClick={()=>window.location.reload()}>Reload page</button></div>:this.props.children;}}
+ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><ErrorBoundary><BrowserRouter><AppProvider><App/></AppProvider></BrowserRouter></ErrorBoundary></React.StrictMode>);
+
+if(import.meta.env.PROD&&'serviceWorker' in navigator){const register=()=>{void navigator.serviceWorker.register('/sw.js').catch(()=>{});};if(document.readyState==='complete')register();else window.addEventListener('load',register,{once:true});}

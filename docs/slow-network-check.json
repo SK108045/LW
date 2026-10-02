@@ -1,0 +1,8 @@
+{
+  "profile": "390px Chrome, 4x CPU throttle, 180ms latency, ~1Mbps download / ~512kbps upload; fresh browser context",
+  "homeReadyMs": 2613,
+  "bookingReadyMs": 1000,
+  "quote": "Total\nKSh 500",
+  "errors": [],
+  "device": "Simulated; not a physical Android benchmark"
+}

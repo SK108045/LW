@@ -1,0 +1,61 @@
+{
+  "mode": "built-in image_gen",
+  "use_case": "photorealistic-natural",
+  "generated_at": "2026-10-01",
+  "assets": [
+    {
+      "slug": "hero-student-mama-fua",
+      "asset": "landscape website hero photograph",
+      "primary": "A young Kenyan female university student handing a canvas laundry bag to a smiling middle-aged Kenyan Mama Fua in a modest neat student-hostel courtyard near Maseno, Kenya.",
+      "composition": "Landscape 3:2 composition, natural mid-action handover, both faces and the canvas bag comfortably inside the central safe crop area. Show some authentic courtyard context.",
+      "prompt": "Asset type: landscape website hero photograph\nPrimary request: A young Kenyan female university student handing a canvas laundry bag to a smiling middle-aged Kenyan Mama Fua in a modest neat student-hostel courtyard near Maseno, Kenya.\nComposition/framing: Landscape 3:2 composition, natural mid-action handover, both faces and the canvas bag comfortably inside the central safe crop area. Show some authentic courtyard context.\nUse case: photorealistic-natural\nScene/backdrop: Authentic contemporary East African setting around Maseno, Kenya, modest neat well-cared-for surroundings, ordinary contemporary clothing.\nStyle/medium: Photorealistic natural editorial photography, real skin and fabric texture, believable proportions, candid documentary feeling, restrained color grading.\nLighting/mood: Warm soft natural daylight, welcoming, practical, everyday human dignity.\nConstraints: No text, no logos, no watermarks. Realistic hands and faces. Avoid staged corporate stock-photo poses, glamour retouching, exaggerated smiles, stereotyped poverty, and invented signs.",
+      "source": "/home/sk10/.codex/generated_images/01a0f7eb-8b0a-7cb3-9009-afd384ed3be5/exec-080c3123-fcaf-4138-913d-47cef453f012.png",
+      "path": "/home/sk10/Documents/LaundryApp/generated-assets/hero-student-mama-fua.png"
+    },
+    {
+      "slug": "laundry-pickup",
+      "asset": "landscape laundry pickup service-card photograph",
+      "primary": "A Kenyan Mama Fua collecting a canvas bag of everyday clothes from a young adult resident at the doorway of a modest neat bedsitter in Maseno, Kenya.",
+      "composition": "Landscape 3:2 composition with the handover and both people near the center; candid human interaction at a real lived-in doorway.",
+      "prompt": "Asset type: landscape laundry pickup service-card photograph\nPrimary request: A Kenyan Mama Fua collecting a canvas bag of everyday clothes from a young adult resident at the doorway of a modest neat bedsitter in Maseno, Kenya.\nComposition/framing: Landscape 3:2 composition with the handover and both people near the center; candid human interaction at a real lived-in doorway.\nUse case: photorealistic-natural\nScene/backdrop: Authentic contemporary East African setting around Maseno, Kenya, modest neat well-cared-for surroundings, ordinary contemporary clothing.\nStyle/medium: Photorealistic natural editorial photography, real skin and fabric texture, believable proportions, candid documentary feeling, restrained color grading.\nLighting/mood: Warm soft natural daylight, welcoming, practical, everyday human dignity.\nConstraints: No text, no logos, no watermarks. Realistic hands and faces. Avoid staged corporate stock-photo poses, glamour retouching, exaggerated smiles, stereotyped poverty, and invented signs.",
+      "source": "/home/sk10/.codex/generated_images/01a0f7eb-8b0a-7cb3-9009-afd384ed3be5/exec-8868ffbb-5c16-4470-ba0e-6e83d56c5485.png",
+      "path": "/home/sk10/Documents/LaundryApp/generated-assets/laundry-pickup.png"
+    },
+    {
+      "slug": "folded-laundry",
+      "asset": "landscape washing and folding service-card photograph",
+      "primary": "Neatly folded clean everyday clothes and practical woven and plastic laundry baskets on a wooden table in a bright modest contemporary Kenyan home.",
+      "composition": "Landscape 3:2 editorial still life, folded shirts and towels and baskets in the center with realistic lived-in room context; no people.",
+      "prompt": "Asset type: landscape washing and folding service-card photograph\nPrimary request: Neatly folded clean everyday clothes and practical woven and plastic laundry baskets on a wooden table in a bright modest contemporary Kenyan home.\nComposition/framing: Landscape 3:2 editorial still life, folded shirts and towels and baskets in the center with realistic lived-in room context; no people.\nUse case: photorealistic-natural\nScene/backdrop: Authentic contemporary East African setting around Maseno, Kenya, modest neat well-cared-for surroundings, ordinary contemporary clothing.\nStyle/medium: Photorealistic natural editorial photography, real skin and fabric texture, believable proportions, candid documentary feeling, restrained color grading.\nLighting/mood: Warm soft natural daylight, welcoming, practical, everyday human dignity.\nConstraints: No text, no logos, no watermarks. Realistic hands and faces. Avoid staged corporate stock-photo poses, glamour retouching, exaggerated smiles, stereotyped poverty, and invented signs.",
+      "source": "/home/sk10/.codex/generated_images/01a0f7eb-8b0a-7cb3-9009-afd384ed3be5/exec-8236d506-876e-444c-a2e0-ccdf43c75b18.png",
+      "path": "/home/sk10/Documents/LaundryApp/generated-assets/folded-laundry.png"
+    },
+    {
+      "slug": "laundry-delivery",
+      "asset": "landscape laundry delivery service-card photograph",
+      "primary": "A Kenyan delivery rider handing a neatly packed canvas bag of cleaned laundry to a young Kenyan male university student outside a modest student hostel in Maseno, Kenya.",
+      "composition": "Landscape 3:2 composition, natural candid handover centrally framed. The rider wears a simple helmet and unbranded everyday jacket; a small motorcycle is visible naturally to the side.",
+      "prompt": "Asset type: landscape laundry delivery service-card photograph\nPrimary request: A Kenyan delivery rider handing a neatly packed canvas bag of cleaned laundry to a young Kenyan male university student outside a modest student hostel in Maseno, Kenya.\nComposition/framing: Landscape 3:2 composition, natural candid handover centrally framed. The rider wears a simple helmet and unbranded everyday jacket; a small motorcycle is visible naturally to the side.\nUse case: photorealistic-natural\nScene/backdrop: Authentic contemporary East African setting around Maseno, Kenya, modest neat well-cared-for surroundings, ordinary contemporary clothing.\nStyle/medium: Photorealistic natural editorial photography, real skin and fabric texture, believable proportions, candid documentary feeling, restrained color grading.\nLighting/mood: Warm soft natural daylight, welcoming, practical, everyday human dignity.\nConstraints: No text, no logos, no watermarks. Realistic hands and faces. Avoid staged corporate stock-photo poses, glamour retouching, exaggerated smiles, stereotyped poverty, and invented signs.",
+      "source": "/home/sk10/.codex/generated_images/01a0f7eb-8b0a-7cb3-9009-afd384ed3be5/exec-b48559d7-2103-43ea-a60d-a9e68bbc625e.png",
+      "path": "/home/sk10/Documents/LaundryApp/generated-assets/laundry-delivery.png"
+    },
+    {
+      "slug": "home-cleaning",
+      "asset": "landscape home cleaning service-card photograph",
+      "primary": "A Kenyan female home-cleaning worker carefully mopping the tiled floor of a tidy modest bedsitter near Maseno, Kenya. A simple bed and small table give authentic contemporary student housing context.",
+      "composition": "Landscape 3:2 composition; worker and mop centered and fully readable within a service-card crop, candid concentrated work.",
+      "prompt": "Asset type: landscape home cleaning service-card photograph\nPrimary request: A Kenyan female home-cleaning worker carefully mopping the tiled floor of a tidy modest bedsitter near Maseno, Kenya. A simple bed and small table give authentic contemporary student housing context.\nComposition/framing: Landscape 3:2 composition; worker and mop centered and fully readable within a service-card crop, candid concentrated work.\nUse case: photorealistic-natural\nScene/backdrop: Authentic contemporary East African setting around Maseno, Kenya, modest neat well-cared-for surroundings, ordinary contemporary clothing.\nStyle/medium: Photorealistic natural editorial photography, real skin and fabric texture, believable proportions, candid documentary feeling, restrained color grading.\nLighting/mood: Warm soft natural daylight, welcoming, practical, everyday human dignity.\nConstraints: No text, no logos, no watermarks. Realistic hands and faces. Avoid staged corporate stock-photo poses, glamour retouching, exaggerated smiles, stereotyped poverty, and invented signs.",
+      "source": "/home/sk10/.codex/generated_images/01a0f7eb-8b0a-7cb3-9009-afd384ed3be5/exec-10c95d7d-1ea0-4ba1-afa4-fe5b557082ca.png",
+      "path": "/home/sk10/Documents/LaundryApp/generated-assets/home-cleaning.png"
+    },
+    {
+      "slug": "mama-fua-portrait",
+      "asset": "professional profile portrait website photograph",
+      "primary": "A warm natural portrait of a professional middle-aged Kenyan Mama Fua at work folding clean laundry on a table in a modest bright Kenyan home.",
+      "composition": "Vertical 4:5 portrait, waist-up, natural quiet friendly expression looking briefly toward camera, hands and folded laundry visible at the bottom; face comfortably centered for cropping.",
+      "prompt": "Asset type: professional profile portrait website photograph\nPrimary request: A warm natural portrait of a professional middle-aged Kenyan Mama Fua at work folding clean laundry on a table in a modest bright Kenyan home.\nComposition/framing: Vertical 4:5 portrait, waist-up, natural quiet friendly expression looking briefly toward camera, hands and folded laundry visible at the bottom; face comfortably centered for cropping.\nUse case: photorealistic-natural\nScene/backdrop: Authentic contemporary East African setting around Maseno, Kenya, modest neat well-cared-for surroundings, ordinary contemporary clothing.\nStyle/medium: Photorealistic natural editorial photography, real skin and fabric texture, believable proportions, candid documentary feeling, restrained color grading.\nLighting/mood: Warm soft natural daylight, welcoming, practical, everyday human dignity.\nConstraints: No text, no logos, no watermarks. Realistic hands and faces. Avoid staged corporate stock-photo poses, glamour retouching, exaggerated smiles, stereotyped poverty, and invented signs.",
+      "source": "/home/sk10/.codex/generated_images/01a0f7eb-8b0a-7cb3-9009-afd384ed3be5/exec-8e32326d-40c0-46b0-a10c-7d0e88c15308.png",
+      "path": "/home/sk10/Documents/LaundryApp/generated-assets/mama-fua-portrait.png"
+    }
+  ]
+}

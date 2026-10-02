@@ -1,0 +1,22 @@
+[Unit]
+Description=LaundryApp Maseno website and API
+After=network.target
+
+[Service]
+Type=simple
+User=laundryapp
+Group=laundryapp
+WorkingDirectory=/opt/laundryapp/website
+EnvironmentFile=/opt/laundryapp/website/.env
+ExecStart=/usr/bin/node server/index.js
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/laundryapp/website/data
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target
