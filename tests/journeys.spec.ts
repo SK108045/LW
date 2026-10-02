@@ -149,7 +149,7 @@ test('specialist cleaning services use fixed on-site bookings',async({page})=>{
   await expect(card).toBeVisible();
   await card.locator('a.btn').click();
   await expect(page.locator('.summary-service')).toContainText(name);
-  await expect(page.locator('.summary-service')).toContainText('At your place');
+  await expect(page.locator('.summary-service')).toContainText('On-site service');
   await expect(page.locator('.summary-total')).toContainText(`KSh ${total}`);
   await expect(page.getByText('Your laundry basket')).toHaveCount(0);
  }
