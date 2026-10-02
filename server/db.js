@@ -75,7 +75,13 @@ const initialCatalog = {
  promos:[{code:'DEMO50',discount:50,active:demo}],
  plans:[{id:'student_weekly',name:'Campus fresh',description:'One small load every week. Pickup and delivery included.',price:1800,frequency:'weekly',load:'small',serviceId:'wash_and_fold',bookings:4},{id:'student_biweekly',name:'Easy fortnight',description:'Two medium loads a month. Pickup and delivery included.',price:1200,frequency:'biweekly',load:'medium',serviceId:'wash_and_fold',bookings:2},{id:'home_monthly',name:'Home reset',description:'One house clean each month.',price:750,frequency:'monthly',load:'small',serviceId:'house_cleaning',bookings:1}]
 };
-if (!catalog()) db.prepare('INSERT INTO settings VALUES (?,?)').run('catalog',JSON.stringify(initialCatalog));
+const existingCatalog=catalog();
+if (!existingCatalog) db.prepare('INSERT INTO settings VALUES (?,?)').run('catalog',JSON.stringify(initialCatalog));
+else {
+ const newServiceIds=['sofa_upholstery_cleaning','carpet_rug_cleaning','vehicle_interior_cleaning'];
+ const additions=initialCatalog.services.filter(service=>newServiceIds.includes(service.id)&&!existingCatalog.services.some(existing=>existing.id===service.id));
+ if(additions.length){existingCatalog.services.push(...additions);db.prepare("UPDATE settings SET data=? WHERE key='catalog'").run(JSON.stringify(existingCatalog));}
+}
 else {
  const current=catalog();
  const missing=initialCatalog.services.filter(service=>!current.services.some(existing=>existing.id===service.id));
