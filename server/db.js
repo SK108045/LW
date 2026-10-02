@@ -78,14 +78,8 @@ const initialCatalog = {
 const existingCatalog=catalog();
 if (!existingCatalog) db.prepare('INSERT INTO settings VALUES (?,?)').run('catalog',JSON.stringify(initialCatalog));
 else {
- const newServiceIds=['sofa_upholstery_cleaning','carpet_rug_cleaning','vehicle_interior_cleaning'];
- const additions=initialCatalog.services.filter(service=>newServiceIds.includes(service.id)&&!existingCatalog.services.some(existing=>existing.id===service.id));
- if(additions.length){existingCatalog.services.push(...additions);db.prepare("UPDATE settings SET data=? WHERE key='catalog'").run(JSON.stringify(existingCatalog));}
-}
-else {
- const current=catalog();
- const missing=initialCatalog.services.filter(service=>!current.services.some(existing=>existing.id===service.id));
- if(missing.length){current.services.push(...missing);db.prepare("UPDATE settings SET data=? WHERE key='catalog'").run(JSON.stringify(current));}
+ const missing=initialCatalog.services.filter(service=>!existingCatalog.services.some(existing=>existing.id===service.id));
+ if(missing.length){existingCatalog.services.push(...missing);db.prepare("UPDATE settings SET data=? WHERE key='catalog'").run(JSON.stringify(existingCatalog));}
 }
 export function resetDemoCatalog(){if(!demo)throw new Error('Demo reset is unavailable.');db.prepare("UPDATE settings SET data=? WHERE key='catalog'").run(JSON.stringify(initialCatalog));}
 // Demo fixtures are isolated from the production database by configuration.
