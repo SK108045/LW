@@ -9,6 +9,9 @@ const laundryIds=['wash_and_fold','wash_and_iron','dry_cleaning','express_laundr
 const photos:Record<string,{src:string;alt:string}>={
  bulky_items:{src:'folded-clothes',alt:'Fresh bedding and shoes ready after specialist cleaning'},
  house_cleaning:{src:'home-cleaning',alt:'A cleaning professional caring for a bright home'},
+ carpet_rug_cleaning:{src:'carpet-rug-cleaning',alt:'A professional deep-cleaning a patterned carpet with extraction equipment'},
+ sofa_upholstery_cleaning:{src:'sofa-upholstery-cleaning',alt:'A professional deep-cleaning a fabric sofa and upholstery'},
+ vehicle_interior_cleaning:{src:'vehicle-interior-cleaning',alt:'A professional detailing a car seat with a brush and interior cleaning solution'},
  custom_job:{src:'laundry-pickup',alt:'A customer discussing a custom job with a local provider'}
 };
 
