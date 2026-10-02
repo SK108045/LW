@@ -26,6 +26,6 @@ export const date=(value:string|null,full=false)=>value?new Intl.DateTimeFormat(
 export const statusLabels:Record<string,string>={pending:'Booking received',provider_assigned:'Provider assigned',rider_assigned_pickup:'Pickup rider assigned',heading_pickup:'Heading for pickup',picked_up:'Picked up',received:'Received at laundry',sorting:'Sorting',washing:'Washing',drying:'Drying',ironing:'Ironing & folding',quality_check:'Quality check',ready:'Ready for delivery',rider_assigned_delivery:'Delivery rider assigned',out_for_delivery:'Out for delivery',delivered:'Delivered',completed:'Completed',cancelled:'Cancelled',on_the_way:'On the way',arrived:'Arrived',in_progress:'In progress'};
 export const laundryFlow=['pending','provider_assigned','rider_assigned_pickup','heading_pickup','picked_up','received','sorting','washing','drying','ironing','quality_check','ready','rider_assigned_delivery','out_for_delivery','delivered','completed'];
 export const homeFlow=['pending','provider_assigned','on_the_way','arrived','in_progress','completed'];
-export const fulfilmentLabels={pickup:'Pickup & delivery',at_home:'Wash at my place',cleaning:'House cleaning',custom:'Custom job'};
+export const fulfilmentLabels={pickup:'Pickup & delivery',at_home:'Wash at my place',cleaning:'On-site service',custom:'Custom job'};
 export const providerTypes={individual:'Individual Mama Fua',laundry_business:'Laundry business',cleaning_company:'Cleaning company'};
 export const message=(e:unknown)=>e instanceof Error?e.message:'Something went wrong. Please retry.';
