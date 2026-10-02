@@ -1,8 +1,8 @@
 import {useEffect,useRef,useId,Children,isValidElement,cloneElement,type ReactNode,type ReactElement} from 'react';
 import {Link} from 'react-router-dom';
-import {LoaderCircle,ShieldCheck,Star,X,PackageOpen,WashingMachine,Shirt,Sparkles,Zap,BedDouble,House,ClipboardList} from 'lucide-react';
+import {LoaderCircle,ShieldCheck,Star,X,PackageOpen,WashingMachine,Shirt,Sparkles,Zap,BedDouble,House,ClipboardList,Armchair,CarFront,RectangleHorizontal} from 'lucide-react';
 import {statusLabels} from '../api';
-export function Icon({name,size=24}:{name:string;size?:number}){const C=({washer:WashingMachine,shirt:Shirt,sparkles:Sparkles,zap:Zap,bed:BedDouble,home:House,clipboard:ClipboardList} as Record<string,typeof Shirt>)[name]||WashingMachine;return <C size={size} strokeWidth={1.7}/>;}
+export function Icon({name,size=24}:{name:string;size?:number}){const C=({washer:WashingMachine,shirt:Shirt,sparkles:Sparkles,zap:Zap,bed:BedDouble,home:House,clipboard:ClipboardList,sofa:Armchair,car:CarFront,rug:RectangleHorizontal} as Record<string,typeof Shirt>)[name]||WashingMachine;return <C size={size} strokeWidth={1.7}/>;}
 export function Spinner(){return <div className="loading" role="status"><LoaderCircle className="spin"/> Loading…</div>;}
 export function ErrorBox({text}:{text:string}){return text?<div className="error-box" role="alert">{text}</div>:null;}
 export function Empty({title,description,to,label}:{title:string;description:string;to?:string;label?:string}){return <div className="empty"><PackageOpen size={42}/><h3>{title}</h3><p>{description}</p>{to&&<Link className="btn" to={to}>{label||'Book a service'}</Link>}</div>;}
