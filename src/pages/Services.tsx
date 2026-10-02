@@ -12,6 +12,9 @@ const photos:Record<string,{src:string;alt:string}>={
  carpet_rug_cleaning:{src:'carpet-rug-cleaning',alt:'A professional deep-cleaning a patterned carpet with extraction equipment'},
  sofa_upholstery_cleaning:{src:'sofa-upholstery-cleaning',alt:'A professional deep-cleaning a fabric sofa and upholstery'},
  vehicle_interior_cleaning:{src:'vehicle-interior-cleaning',alt:'A professional detailing a car seat with a brush and interior cleaning solution'},
+ sofa_upholstery_cleaning:{src:'sofa-upholstery-cleaning',alt:'A professional deep-cleaning a fabric sofa'},
+ carpet_rug_cleaning:{src:'carpet-rug-cleaning',alt:'A professional deep-cleaning a carpet with an extraction tool'},
+ vehicle_interior_cleaning:{src:'vehicle-interior-cleaning',alt:'A professional detailing a car seat with a brush and interior cleaner'},
  custom_job:{src:'laundry-pickup',alt:'A customer discussing a custom job with a local provider'}
 };
 
