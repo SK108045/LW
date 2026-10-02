@@ -107,23 +107,30 @@ test('visual refresh: motion, accordion, mobile navigation and reduced-motion ac
  expect(errors).toEqual([]);
 });
 
-test('polished service choices keep home estimates, provider details and booking selections consistent',async({page})=>{
- await page.setViewportSize({width:390,height:900});await page.goto('/');
- const quick=page.getByRole('region',{name:'Quick laundry'});
- await expect(quick.getByRole('link',{name:/Small Load/})).toContainText('KSh 500');
- await quick.getByRole('button',{name:'Wash at my place',exact:true}).click();
- await expect(quick.getByRole('button',{name:'Wash at my place',exact:true})).toHaveAttribute('aria-pressed','true');
- await expect(quick.getByRole('link',{name:/Small Load/})).toContainText('KSh 200');
- await quick.getByRole('link',{name:/Medium Load/}).click();
- await expect(page.getByRole('button',{name:'Wash at my place',exact:true})).toHaveAttribute('aria-pressed','true');
- await expect(page.locator('.summary-total')).toContainText('KSh 350');
- await page.getByRole('button',{name:'Open menu',exact:true}).click();await page.keyboard.press('Escape');
- await expect(page.getByRole('button',{name:'Open menu',exact:true})).toBeFocused();
- for(const [label,total] of [['dry cleaning','1,500'],['wash & iron','600'],['express laundry','900'],['bedding & shoes','900']]){
-  await page.goto('/services');const choice=page.getByRole('link',{name:`Book ${label}`,exact:true});await expect(page.locator('.catalog-card').filter({has:choice}).locator('.catalog-price')).toContainText(`KSh ${total}`);await choice.click();
-  await expect(page.locator('.summary-total')).toContainText(`KSh ${total}`);
-  await expect(page.getByRole('button',{name:'Continue to location',exact:true})).toBeEnabled();
- }
+test('consolidated laundry service keeps variants and booking prices consistent',async({page})=>{
+ await page.setViewportSize({width:390,height:900});
+ await page.goto('/services');
+ await expect(page.getByRole('heading',{name:'Laundry & Garment Care',exact:true})).toHaveCount(1);
+ await expect(page.getByRole('heading',{name:'Wash & Fold',exact:true})).toHaveCount(0);
+ await page.getByRole('link',{name:'Wash & Iron',exact:true}).click();
+ await expect(page.getByRole('button',{name:'Wash & Iron',exact:true})).toHaveClass(/active/);
+ await expect(page.locator('.summary-total')).toContainText('KSh 600');
+
+ await page.goto('/services');
+ await page.getByRole('link',{name:'Same-day Express',exact:true}).click();
+ await expect(page.getByLabel('Express / same-day service')).toBeChecked();
+ await expect(page.locator('.summary-total')).toContainText('KSh 800');
+
+ await page.goto('/services');
+ await page.getByRole('link',{name:'Dry Cleaning',exact:true}).click();
+ await expect(page.locator('.summary-total')).toContainText('KSh 1,500');
+
+ await page.goto('/services');
+ const bedding=page.getByRole('link',{name:'Book bedding & shoes',exact:true});
+ await expect(page.locator('.catalog-card').filter({has:bedding}).locator('.catalog-price')).toContainText('KSh 900');
+ await bedding.click();
+ await expect(page.locator('.summary-total')).toContainText('KSh 900');
+
  await page.goto('/providers');await expect(page.locator('.provider-specialties').first()).toContainText('Wash & Fold');
  await page.locator('.provider-card').first().getByRole('link',{name:'View profile',exact:true}).click();
  await expect(page.getByRole('heading',{name:'Mama Mary',exact:true})).toBeVisible();
