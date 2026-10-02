@@ -522,6 +522,8 @@ input:focus,select:focus,textarea:focus { outline: 2px solid #98b56a55; outline-
 .catalog-price>span { font-size: .73rem; color: #7b856d; }
 .catalog-price strong { font-size: 1.23rem; font-weight: 550; letter-spacing: -.04em; }
 .catalog-content>.btn { justify-content: space-between; min-height: 45px; padding: 12px 17px; font-size: .78rem; border-color: #e0e6d2; background: #f6f9ee; }
+.service-variant-links { display: flex; flex-wrap: wrap; gap: 8px; margin: -5px 0 18px; }
+.service-variant-links a { display: inline-flex; align-items: center; min-height: 32px; padding: 7px 11px; border: 1px solid #dfe5d4; border-radius: 100px; background: #f8faF2; color: #526b45; font-size: .7rem; font-weight: 550; transition: background 180ms,border-color 180ms,transform 220ms var(--ease-out); }
 .services-page>.info-callout { margin-top: 30px; border-radius: 18px; }
 @keyframes price-in { from { opacity: .2; transform: translateY(5px); } to { opacity: 1; transform: none; } }
 @keyframes favourite-in { 0% { transform: scale(.8); } 55% { transform: scale(1.17); } 100% { transform: scale(1); } }
