@@ -135,3 +135,22 @@ test('consolidated laundry service keeps variants and booking prices consistent'
  await page.locator('.provider-card').first().getByRole('link',{name:'View profile',exact:true}).click();
  await expect(page.getByRole('heading',{name:'Mama Mary',exact:true})).toBeVisible();
 });
+
+
+test('specialist cleaning services use fixed on-site bookings',async({page})=>{
+ const cases=[
+  ['Sofa / Upholstery Cleaning','1,500'],
+  ['Carpet & Rug Cleaning','800'],
+  ['Vehicle Interior Cleaning','2,000']
+ ];
+ for(const [name,total] of cases){
+  await page.goto('/services');
+  const card=page.locator('.catalog-card').filter({has:page.getByRole('heading',{name,exact:true})});
+  await expect(card).toBeVisible();
+  await card.locator('a.btn').click();
+  await expect(page.locator('.summary-service')).toContainText(name);
+  await expect(page.locator('.summary-service')).toContainText('At your place');
+  await expect(page.locator('.summary-total')).toContainText(`KSh ${total}`);
+  await expect(page.getByText('Your laundry basket')).toHaveCount(0);
+ }
+});
