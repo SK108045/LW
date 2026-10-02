@@ -102,5 +102,13 @@ export function seedDemo() {
  ]; providers.forEach(saveProvider);
  notify('demo-customer','Welcome to LaundryApp','Try a booking, switch to a provider, and follow it from pickup to delivery.');
 }
+if(demo){
+ const demoCleaningServices=['house_cleaning','sofa_upholstery_cleaning','carpet_rug_cleaning','vehicle_interior_cleaning','custom_job'];
+ const existingDemoCleaner=getProvider('neat-home');
+ if(existingDemoCleaner){
+  const merged=[...new Set([...(existingDemoCleaner.categories||[]),...demoCleaningServices])];
+  if(JSON.stringify(merged)!==JSON.stringify(existingDemoCleaner.categories||[])){existingDemoCleaner.categories=merged;saveProvider(existingDemoCleaner);}
+ }
+}
 if(production&&(db.prepare("SELECT id FROM users WHERE json_extract(data,'$.demo')=1 LIMIT 1").get()||db.prepare("SELECT id FROM providers WHERE json_extract(data,'$.demo')=1 LIMIT 1").get()))throw new Error('Production cannot use a database containing demo accounts. Set DATABASE_PATH to a fresh live database.');
 seedDemo();
