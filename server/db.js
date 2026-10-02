@@ -65,6 +65,9 @@ const initialCatalog = {
   {id:'express_laundry',name:'Express Laundry',description:'Priority same-day laundry, subject to availability.',price:1500,kgPrice:180,quickExtra:100,itemExtra:20,itemPricing:true,active:true,fulfilments:['pickup','at_home'],duration:'6–8 hours',icon:'zap'},
   {id:'bulky_items',name:'Bedding & Shoes',description:'Duvets, blankets and shoes get their own fresh start.',price:600,kgPrice:0,itemPricing:true,itemExtra:0,quickExtra:0,active:true,fulfilments:['pickup','at_home'],duration:'24–48 hours',icon:'bed'},
   {id:'house_cleaning',name:'House Cleaning',description:'A tidy bedsitter or a deep clean for your home.',price:800,kgPrice:0,itemPricing:false,active:true,fulfilments:['cleaning'],duration:'2–4 hours',icon:'home'},
+  {id:'carpet_rug_cleaning',name:'Carpet & Rug Cleaning',description:'Deep-clean carpets, rugs and floor mats to lift dirt, stains and odours.',price:800,kgPrice:0,itemPricing:false,active:true,fulfilments:['cleaning'],duration:'2–4 hours',icon:'rug'},
+  {id:'sofa_upholstery_cleaning',name:'Sofa / Upholstery Cleaning',description:'Refresh sofas, armchairs, cushions and upholstered furniture.',price:1500,kgPrice:0,itemPricing:false,active:true,fulfilments:['cleaning'],duration:'2–4 hours',icon:'sofa'},
+  {id:'vehicle_interior_cleaning',name:'Vehicle Interior Cleaning',description:'Interior detailing for seats, carpets, floor mats, dashboard and trim.',price:2000,kgPrice:0,itemPricing:false,active:true,fulfilments:['cleaning'],duration:'2–3 hours',icon:'car'},
   {id:'custom_job',name:'Custom Job',description:'Tell a local professional what you need a hand with.',price:1000,kgPrice:0,itemPricing:false,active:true,fulfilments:['custom'],duration:'Agreed with provider',icon:'clipboard'}
  ],
  loads:[{id:'small',name:'Small Load',detail:'About 8 everyday items',price:200,weight:3},{id:'medium',name:'Medium Load',detail:'About 15 everyday items',price:350,weight:5},{id:'large',name:'Large Load',detail:'About 25 everyday items',price:500,weight:8},{id:'duvet',name:'Duvet',detail:'One duvet',price:600,weight:4},{id:'blanket',name:'Blanket',detail:'One blanket',price:350,weight:3},{id:'shoes',name:'Shoes',detail:'One pair',price:150,weight:1}],
@@ -73,6 +76,11 @@ const initialCatalog = {
  plans:[{id:'student_weekly',name:'Campus fresh',description:'One small load every week. Pickup and delivery included.',price:1800,frequency:'weekly',load:'small',serviceId:'wash_and_fold',bookings:4},{id:'student_biweekly',name:'Easy fortnight',description:'Two medium loads a month. Pickup and delivery included.',price:1200,frequency:'biweekly',load:'medium',serviceId:'wash_and_fold',bookings:2},{id:'home_monthly',name:'Home reset',description:'One house clean each month.',price:750,frequency:'monthly',load:'small',serviceId:'house_cleaning',bookings:1}]
 };
 if (!catalog()) db.prepare('INSERT INTO settings VALUES (?,?)').run('catalog',JSON.stringify(initialCatalog));
+else {
+ const current=catalog();
+ const missing=initialCatalog.services.filter(service=>!current.services.some(existing=>existing.id===service.id));
+ if(missing.length){current.services.push(...missing);db.prepare("UPDATE settings SET data=? WHERE key='catalog'").run(JSON.stringify(current));}
+}
 export function resetDemoCatalog(){if(!demo)throw new Error('Demo reset is unavailable.');db.prepare("UPDATE settings SET data=? WHERE key='catalog'").run(JSON.stringify(initialCatalog));}
 // Demo fixtures are isolated from the production database by configuration.
 export function seedDemo() {
@@ -84,7 +92,7 @@ export function seedDemo() {
  const providers=[
  {id:'mama-mary',userId:'demo-provider',name:'Mama Mary',type:'individual',bio:'Careful handwashing and home visits around Main Campus and Mabungo. Tell me how you like your clothes cared for.',area:'Mabungo',areas:initialCatalog.areas,radius:3,categories:['wash_and_fold','wash_and_iron','bulky_items','custom_job'],fulfilments:['pickup','at_home','custom'],rating:4.9,reviewCount:0,online:true,verified:true,verificationStatus:'approved',avatar:'/images/mama-portrait.webp',demo:true},
  {id:'maseno-fresh',userId:'maseno-fresh',name:'Maseno Fresh Laundry',type:'laundry_business',bio:'Wash, fold and specialist garment care with convenient pickup and return delivery.',area:'Maseno Town',areas:initialCatalog.areas,radius:5,categories:['wash_and_fold','wash_and_iron','dry_cleaning','express_laundry','bulky_items'],fulfilments:['pickup'],rating:4.8,reviewCount:0,online:true,verified:true,verificationStatus:'approved',avatar:'/images/folded-clothes.webp',demo:true},
- {id:'neat-home',userId:'neat-home',name:'Neat Home Crew',type:'cleaning_company',bio:'Bedsitter refreshes, home cleaning and custom cleaning jobs. Bring back the comfort of a clean home.',area:'Nyawita',areas:initialCatalog.areas,radius:4,categories:['house_cleaning','custom_job'],fulfilments:['cleaning','custom'],rating:4.8,reviewCount:0,online:true,verified:true,verificationStatus:'approved',avatar:'/images/home-cleaning.webp',demo:true}
+ {id:'neat-home',userId:'neat-home',name:'Neat Home Crew',type:'cleaning_company',bio:'Bedsitter refreshes, home cleaning and custom cleaning jobs. Bring back the comfort of a clean home.',area:'Nyawita',areas:initialCatalog.areas,radius:4,categories:['house_cleaning','carpet_rug_cleaning','sofa_upholstery_cleaning','vehicle_interior_cleaning','custom_job'],fulfilments:['cleaning','custom'],rating:4.8,reviewCount:0,online:true,verified:true,verificationStatus:'approved',avatar:'/images/home-cleaning.webp',demo:true}
  ]; providers.forEach(saveProvider);
  notify('demo-customer','Welcome to LaundryApp','Try a booking, switch to a provider, and follow it from pickup to delivery.');
 }
